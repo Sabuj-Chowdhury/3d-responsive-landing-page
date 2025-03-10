@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
 
+// Styled Components for layout and responsive design
 const LargeHeader = styled.div`
   position: relative;
   width: 100%;
@@ -14,6 +15,7 @@ const LargeHeader = styled.div`
   background-image: url("https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/img/demo-1-bg.jpg");
 `;
 
+// Canvas element that renders the animated background
 const Canvas = styled.canvas`
   position: absolute;
   top: 0;
@@ -22,48 +24,17 @@ const Canvas = styled.canvas`
   height: 100%;
 `;
 
-const MainTitle = styled.h1`
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  color: #f9f1e9;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  text-transform: uppercase;
-  font-size: 4.2em;
-  letter-spacing: 0.1em;
-
-  @media screen and (max-width: 1200px) {
-    font-size: 3.8em;
-  }
-
-  @media screen and (max-width: 992px) {
-    font-size: 3.4em;
-  }
-
-  @media screen and (max-width: 768px) {
-    font-size: 3em;
-  }
-
-  @media screen and (max-width: 576px) {
-    font-size: 2.5em;
-  }
-
-  @media screen and (max-width: 380px) {
-    font-size: 2em;
-  }
-`;
-
 const Background = () => {
+  // Refs to store mutable values without causing re-renders
   const headerRef = useRef(null);
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
   const pointsRef = useRef([]);
+  //   store the current state of the animation
   const targetRef = useRef({ x: 0, y: 0 });
+  //   controls whether the animation should continue or not
   const animateHeaderRef = useRef(true);
-
+  // create a circle object
   const Circle = (pos, rad, color) => {
     const circle = {
       pos: pos || null,
@@ -81,10 +52,12 @@ const Background = () => {
     return circle;
   };
 
+  //   calculate the distance between two points
   const getDistance = (p1, p2) => {
     return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
   };
 
+  //   draw lines between two points
   const drawLines = (p, ctx) => {
     if (!p.active) return;
     for (let i in p.closest) {
@@ -95,7 +68,7 @@ const Background = () => {
       ctx.stroke();
     }
   };
-
+  //   shift the position of a point
   const shiftPoint = (p) => {
     gsap.to(p, {
       duration: 1 + 1 * Math.random(),
@@ -106,6 +79,7 @@ const Background = () => {
     });
   };
 
+  //   initialize the canvas and points
   const initHeader = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
@@ -199,10 +173,12 @@ const Background = () => {
   };
 
   useEffect(() => {
+    // Initialize the header and start the animation
     initHeader();
     animate();
     pointsRef.current.forEach((point) => shiftPoint(point));
 
+    // Event listeners for mouse movement and scroll
     const handleMouseMove = (e) => {
       let posx = 0;
       let posy = 0;
@@ -246,14 +222,11 @@ const Background = () => {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, []);
+  }, [animate, initHeader, shiftPoint]);
 
   return (
     <LargeHeader ref={headerRef}>
       <Canvas ref={canvasRef} />
-      <MainTitle>
-        Demo <span style={{ fontWeight: 200 }}>One</span>
-      </MainTitle>
     </LargeHeader>
   );
 };
