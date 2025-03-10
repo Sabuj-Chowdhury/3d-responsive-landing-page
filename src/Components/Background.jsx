@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
+import Card from "./Card";
 
 // Styled Components for layout and responsive design
 const LargeHeader = styled.div`
@@ -222,11 +223,12 @@ const Background = () => {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [animate, initHeader, shiftPoint]);
+  }, []);
 
   return (
     <LargeHeader ref={headerRef}>
       <Canvas ref={canvasRef} />
+      <Card />
     </LargeHeader>
   );
 };
