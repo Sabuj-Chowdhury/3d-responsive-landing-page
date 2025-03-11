@@ -1,17 +1,14 @@
-
-
 import MoviesCard from "./MoviesCard";
+import { movieData } from "../data/movieData";
 
 const SliderCards = () => {
   return (
-    <div className="flex justify-center items-center overflow-hidden md:py-10">
+    <div className="max-h-[600px] flex justify-center items-start overflow-y-auto p-6">
       {/* Cards Container */}
-      <div className="grid grid-cols-2 md:grid-cols-1 gap-5 w-[450px] md:w-[250px] space-y-10">
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
+      <div className="grid grid-cols-2 md:grid-cols-1 gap-8 w-[450px] md:w-[250px]">
+        {movieData.slice(0, 5).map((movie) => (
+          <MoviesCard key={movie.id} movie={movie} />
+        ))}
       </div>
     </div>
   );
