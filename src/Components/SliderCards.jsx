@@ -17,11 +17,11 @@ const SliderCards = () => {
         {/* Songs Card */}
         <div className="relative flex flex-col p-5 rounded-2xl bg-[#0f1a3b]/80 border border-[#1d2943] backdrop-blur-[10px]">
           <h1 className="text-center uppercase text-lg mb-6 text-[#cbd5e1] relative after:content-[''] after:absolute after:top-[95%] after:w-full after:left-0 after:h-[3px] after:rounded-md after:bg-gradient-to-r after:from-[#2b60bc] after:via-[#822f99] after:to-[#2b60bc] after:bg-[length:200%_100%] after:animate-lineAnimation">
-            Songs
+            Movies
           </h1>
           <div className="flex flex-col gap-2">
-            <h3 className="text-base text-[#cbd5e1]">Artist Name</h3>
-            <p className="text-sm font-light text-[#94a3b8]">Song Title</p>
+            <h3 className="text-base text-[#cbd5e1]">Movie Name</h3>
+            <p className="text-sm font-light text-[#94a3b8]">Cast</p>
           </div>
           <button
             onClick={() => setShowSongsSidebar(true)}
@@ -40,7 +40,7 @@ const SliderCards = () => {
             Overview
           </h1>
           <p className="text-sm font-light text-[#94a3b8] text-left">
-            Brief description about the artist...
+            Brief description about the movie...
           </p>
           <button
             onClick={() => setShowOverviewSidebar(true)}
@@ -106,7 +106,7 @@ const SliderCards = () => {
                   className="w-64 aspect-[4/3] object-cover rounded-lg mb-5"
                 />
                 <p className="text-[#94a3b8] text-center">
-                  Detailed description about the artist...
+                  Detailed description about the movie...
                 </p>
               </div>
             </div>
