@@ -204,7 +204,7 @@ const Background = () => {
         {/* container */}
         <div className="max-w-7xl mx-auto  mt-10">
           {/* cards */}
-          <div className="flex flex-col md:flex-row justify-between items-start gap-4">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-10">
             {/* main card */}
             <div className="w-full md:w-[70%] md:min-h-[80vh] flex items-center">
               <Card />
