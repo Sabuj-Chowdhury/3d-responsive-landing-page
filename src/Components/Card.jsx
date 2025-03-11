@@ -20,7 +20,7 @@ const Card = () => {
             comedies, we've got a film lineup to cater to all tastes. Save the
             date and bring your favorite snacks to make it a memorable evening.
           </p>
-          <button className="w-full md:w-auto px-6 md:px-10 py-2 md:py-2.5 text-base md:text-lg font-bold rounded bg-white/90 text-[#784ba0] shadow-lg border border-white/30 hover:scale-105 transition-transform duration-300">
+          <button className="w-[50%] md:w-auto px-6 md:px-10 py-2 md:py-2.5 text-base md:text-lg font-bold rounded bg-white/90 text-[#784ba0] shadow-lg border border-white/30 hover:scale-105 transition-transform duration-300">
             Join
           </button>
         </div>
