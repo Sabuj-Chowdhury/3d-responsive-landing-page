@@ -1,41 +1,16 @@
 import React, { useEffect, useRef } from "react";
-import styled from "styled-components";
 import { gsap } from "gsap";
 import Card from "./Card";
-
-// Styled Components for layout and responsive design
-const LargeHeader = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: #333;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center center;
-  z-index: 1;
-  background-image: url("https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/img/demo-1-bg.jpg");
-`;
-
-// Canvas element that renders the animated background
-const Canvas = styled.canvas`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-`;
+import SliderCards from "./SliderCards";
 
 const Background = () => {
-  // Refs to store mutable values without causing re-renders
   const headerRef = useRef(null);
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
   const pointsRef = useRef([]);
-  //   store the current state of the animation
   const targetRef = useRef({ x: 0, y: 0 });
-  //   controls whether the animation should continue or not
   const animateHeaderRef = useRef(true);
-  // create a circle object
+
   const Circle = (pos, rad, color) => {
     const circle = {
       pos: pos || null,
@@ -53,12 +28,10 @@ const Background = () => {
     return circle;
   };
 
-  //   calculate the distance between two points
   const getDistance = (p1, p2) => {
     return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
   };
 
-  //   draw lines between two points
   const drawLines = (p, ctx) => {
     if (!p.active) return;
     for (let i in p.closest) {
@@ -69,7 +42,7 @@ const Background = () => {
       ctx.stroke();
     }
   };
-  //   shift the position of a point
+
   const shiftPoint = (p) => {
     gsap.to(p, {
       duration: 1 + 1 * Math.random(),
@@ -80,7 +53,6 @@ const Background = () => {
     });
   };
 
-  //   initialize the canvas and points
   const initHeader = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
@@ -96,7 +68,6 @@ const Background = () => {
 
     targetRef.current = { x: width / 2, y: height / 2 };
 
-    // Create points
     pointsRef.current = [];
     for (let x = 0; x < width; x = x + width / 20) {
       for (let y = 0; y < height; y = y + height / 20) {
@@ -107,7 +78,6 @@ const Background = () => {
       }
     }
 
-    // Find closest points
     for (let i = 0; i < pointsRef.current.length; i++) {
       const closest = [];
       const p1 = pointsRef.current[i];
@@ -136,7 +106,6 @@ const Background = () => {
       p1.closest = closest;
     }
 
-    // Assign circles
     for (let i in pointsRef.current) {
       pointsRef.current[i].circle = Circle(
         pointsRef.current[i],
@@ -174,12 +143,10 @@ const Background = () => {
   };
 
   useEffect(() => {
-    // Initialize the header and start the animation
     initHeader();
     animate();
     pointsRef.current.forEach((point) => shiftPoint(point));
 
-    // Event listeners for mouse movement and scroll
     const handleMouseMove = (e) => {
       let posx = 0;
       let posy = 0;
@@ -226,10 +193,22 @@ const Background = () => {
   }, []);
 
   return (
-    <LargeHeader ref={headerRef}>
-      <Canvas ref={canvasRef} />
-      <Card />
-    </LargeHeader>
+    <div
+      ref={headerRef}
+      className="relative w-full min-h-screen bg-[#333] overflow-y-auto bg-cover bg-center z-[1] bg-[url('https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/img/demo-1-bg.jpg')]"
+    >
+      <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full" />
+      <div className="relative z-10 w-full py-8">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-8 px-4 md:px-8 lg:px-12">
+          <div className="w-full md:w-[60%] min-h-[80vh] flex items-center">
+            <Card />
+          </div>
+          <div className="w-full md:w-[30%] min-h-[80vh] flex items-center">
+            <SliderCards />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
