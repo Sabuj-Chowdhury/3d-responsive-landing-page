@@ -13,7 +13,6 @@ const MoviesCard = ({ movie }) => {
     <>
       <div className="relative flex flex-col p-5 rounded-2xl bg-[#1c2137]/70 border border-[#1d2943] backdrop-blur-[10px]">
         <div className="flex flex-col gap-2">
-          {/* image */}
           <div className="mb-3">
             <img
               src={movie.image}
@@ -34,39 +33,45 @@ const MoviesCard = ({ movie }) => {
         </button>
       </div>
 
-      {showMoviesSidebar && (
-        <div className="fixed inset-0 bg-black/50 z-20 animate-openSidebar">
-          <div className="absolute top-0 right-0 h-full w-2/5 bg-[rgba(133,133,133,0.2)] backdrop-blur-[10px] border border-white/20 text-white">
-            <div className="p-5">
-              <button
-                onClick={() => setShowMoviesSidebar(false)}
-                className="flex items-center gap-1.5 text-white font-semibold uppercase"
-              >
-                <IonIcon icon={arrowBackOutline} className="text-2xl" />
-                Back
-              </button>
-              <div className="mt-8 space-y-4 px-4">
-                <div className="grid grid-cols-[35%_55%_10%] items-center gap-4">
-                  <img
-                    src={movie.image}
-                    alt={movie.title}
-                    className="w-24 aspect-[3/2] rounded-xl object-cover"
-                  />
-                  <div className="flex flex-col">
-                    <h4 className="text-white">{movie.title}</h4>
-                    <p className="text-sm font-light text-[#94a3b8]">
-                      Rating: {movie.rating}
-                    </p>
-                  </div>
-                  <button className="text-2xl text-[#efefef] hover:text-[#5834c4] transition-all duration-500">
-                    <IonIcon icon={playCircleOutline} />
-                  </button>
+      <div 
+        className={`fixed inset-0 bg-black/50 z-20 transition-all duration-300 ${
+          showMoviesSidebar ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+      >
+        <div 
+          className={`absolute top-0 right-0 h-full w-2/5 bg-[rgba(133,133,133,0.2)] backdrop-blur-[10px] border border-white/20 text-white transition-transform duration-500 ease-out ${
+            showMoviesSidebar ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="p-5">
+            <button
+              onClick={() => setShowMoviesSidebar(false)}
+              className="flex items-center gap-1.5 text-white font-semibold uppercase hover:text-purple-400 transition-colors duration-300"
+            >
+              <IonIcon icon={arrowBackOutline} className="text-2xl" />
+              Back
+            </button>
+            <div className="mt-8 space-y-4 px-4">
+              <div className="grid grid-cols-[35%_55%_10%] items-center gap-4">
+                <img
+                  src={movie.image}
+                  alt={movie.title}
+                  className="w-24 aspect-[3/2] rounded-xl object-cover"
+                />
+                <div className="flex flex-col gap-2">
+                  <h4 className="text-white text-lg font-semibold">{movie.title}</h4>
+                  <p className="text-sm font-light text-[#94a3b8]">
+                    Rating: {movie.rating}
+                  </p>
                 </div>
+                <button className="text-2xl text-[#efefef] hover:text-[#5834c4] transition-all duration-500">
+                  <IonIcon icon={playCircleOutline} />
+                </button>
               </div>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };
