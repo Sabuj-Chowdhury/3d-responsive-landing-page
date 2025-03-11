@@ -200,7 +200,12 @@ const Background = () => {
       <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full" />
       <div className="relative z-10 w-full py-8">
         {/* TODO: tittle */}
-        <div></div>
+        <div className="max-w-7xl mx-auto">
+          <h1 className="font-['Kalam'] font-extrabold text-white text-4xl md:text-7xl">
+            {" "}
+            Demo text
+          </h1>
+        </div>
         {/* container */}
         <div className="max-w-7xl mx-auto  mt-10">
           {/* cards */}
