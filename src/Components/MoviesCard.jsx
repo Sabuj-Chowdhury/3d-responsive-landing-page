@@ -28,7 +28,7 @@ const MoviesCard = ({ movie }) => {
         </div>
         <button
           onClick={() => setShowMoviesSidebar(true)}
-          className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex items-center justify-center p-1.5 rounded-full bg-[rgba(220,220,220,0.7)] backdrop-blur-[70px] border border-white/35 hover:bg-[rgba(220,220,220,1)] transition-all duration-500 hover:rotate-360"
+          className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex items-center justify-center p-1.5 rounded-full bg-[rgba(220,220,220,0.7)] backdrop-blur-[70px] border border-white/35 hover:bg-[rgba(220,220,220,1)] transition-all duration-500 hover:rotate-360 cursor-pointer"
         >
           <IonIcon icon={addCircleOutline} className="text-xl text-[#2e2e2f]" />
         </button>
