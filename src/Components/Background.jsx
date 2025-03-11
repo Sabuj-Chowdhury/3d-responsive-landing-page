@@ -199,7 +199,12 @@ const Background = () => {
     >
       <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full" />
       <div className="relative z-10 w-full py-8">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8 px-4 md:px-8 lg:px-12">
+        <div>
+          <p className="text-white text-2xl px-12 ">
+            Slider with Two Different Sidebars | Swiper JS
+          </p>
+        </div>
+        <div className="flex flex-col md:flex-row justify-between items-start gap-8 px-4 md:px-8 lg:px-12 ">
           <div className="w-full md:w-[60%] min-h-[80vh] flex items-center">
             <Card />
           </div>
