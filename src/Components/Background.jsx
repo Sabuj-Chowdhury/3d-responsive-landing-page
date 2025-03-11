@@ -201,8 +201,7 @@ const Background = () => {
       <div className="relative z-10 w-full py-8">
         {/*  tittle */}
         <div className="max-w-7xl mx-auto">
-          <h1 className="font-['Kalam'] font-extrabold text-white text-4xl md:text-7xl">
-            {" "}
+          <h1 className="font-['Kalam'] font-extrabold text-4xl md:text-7xl bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent bg-clip-text animate-gradient bg-300% hover:animate-none transition-all duration-300">
             Demo text
           </h1>
         </div>
