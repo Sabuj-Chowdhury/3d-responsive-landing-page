@@ -195,11 +195,11 @@ const Background = () => {
   return (
     <div
       ref={headerRef}
-      className="overflow-y-hidden relative w-full min-h-screen   bg-cover bg-center z-[1] bg-[#040a22]"
+      className="overflow-y-hidden relative w-full min-h-screen   bg-cover bg-center z-[1] bg-[url('https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/img/demo-1-bg.jpg')]"
     >
       <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full" />
       <div className="relative z-10 w-full py-8">
-        {/* TODO: tittle */}
+        {/*  tittle */}
         <div className="max-w-7xl mx-auto">
           <h1 className="font-['Kalam'] font-extrabold text-white text-4xl md:text-7xl">
             {" "}
