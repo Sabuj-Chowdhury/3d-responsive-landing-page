@@ -70,11 +70,11 @@ const SliderCards = () => {
                 <div className="grid grid-cols-[35%_55%_10%] items-center gap-4">
                   <img
                     src="path-to-song-image"
-                    alt="song"
+                    alt="picture of the movie"
                     className="w-24 aspect-[3/2] rounded-xl object-cover"
                   />
                   <div className="flex flex-col">
-                    <h4 className="text-white">Song Name</h4>
+                    <h4 className="text-white">Movie Name</h4>
                     <p className="text-sm font-light text-[#94a3b8]">Artist</p>
                   </div>
                   <button className="text-2xl text-[#efefef] hover:text-[#5834c4] transition-all duration-500">
