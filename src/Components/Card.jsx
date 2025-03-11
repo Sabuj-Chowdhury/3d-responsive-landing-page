@@ -6,7 +6,7 @@ import { movieData } from "../data/movieData";
 
 const Card = () => {
   return (
-    <section className="relative flex justify-center items-center overflow-hidden p-4">
+    <section className="relative flex justify-center items-center overflow-hidden w-full">
       <div className="flex flex-col md:flex-row justify-center items-center gap-8 bg-gradient-to-b from-white/30 to-transparent backdrop-blur-[30px] rounded-[20px] w-[min(900px,100%)] p-4 md:p-8 shadow-[0_0.5px_0_1px_rgba(255,255,255,0.23)_inset,0_1px_0_0_rgba(255,255,255,0.66)_inset,0_4px_16px_rgba(0,0,0,0.12)] z-10">
         <div className="flex flex-col justify-center items-center max-w-full md:max-w-[450px] px-4 md:px-9 text-justify">
           <p className="text-white font-medium text-sm md:text-base mb-5 leading-relaxed">

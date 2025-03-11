@@ -195,7 +195,7 @@ const Background = () => {
   return (
     <div
       ref={headerRef}
-      className="relative w-full min-h-screen bg-[#333] overflow-y-auto bg-cover bg-center z-[1] bg-[url('https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/img/demo-1-bg.jpg')]"
+      className="overflow-y-hidden relative w-full min-h-screen   bg-cover bg-center z-[1] bg-[#040a22]"
     >
       <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full" />
       <div className="relative z-10 w-full py-8">
