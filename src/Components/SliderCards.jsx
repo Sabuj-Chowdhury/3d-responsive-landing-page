@@ -11,9 +11,9 @@ const SliderCards = () => {
   const [showOverviewSidebar, setShowOverviewSidebar] = useState(false);
 
   return (
-    <div className="flex justify-center items-center ">
+    <div className="flex justify-center items-center overflow-hidden md:py-10">
       {/* Cards Container */}
-      <div className="grid grid-cols-2 md:grid-cols-1 gap-5 w-[450px] md:w-[250px]">
+      <div className="grid grid-cols-2  md:grid-cols-1 gap-5 w-[450px] md:w-[250px]">
         {/* Songs Card */}
         <div className="relative flex flex-col p-5 rounded-2xl bg-[#0f1a3b]/80 border border-[#1d2943] backdrop-blur-[10px]">
           <h1 className="text-center uppercase text-lg mb-6 text-[#cbd5e1] relative after:content-[''] after:absolute after:top-[95%] after:w-full after:left-0 after:h-[3px] after:rounded-md after:bg-gradient-to-r after:from-[#2b60bc] after:via-[#822f99] after:to-[#2b60bc] after:bg-[length:200%_100%] after:animate-lineAnimation">
